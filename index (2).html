@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Pest Control Front (NPCF) - Hum Honge Kamyaab (Eventually)</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Bebas+Neue&family=Baloo+2:wght@400;600;800&family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --saffron: #FF6B00;
+    --deep-saffron: #E55100;
+    --green: #138808;
+    --deep-green: #0A5C05;
+    --navy: #000080;
+    --gold: #FFD700;
+    --cream: #FFF8E7;
+    --dark: #1A0A00;
+    --text: #2D1200;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Baloo 2', 'Noto Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* === TICKER === */
+  .ticker-wrap {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 8px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 3px solid var(--gold);
+  }
+  .ticker-label {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 13px;
+    padding: 2px 12px;
+    margin-right: 16px;
+    letter-spacing: 1px;
+  }
+  .ticker-track {
+    display: inline-block;
+    animation: ticker 28s linear infinite;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* === NAV === */
+  nav {
+    background: var(--saffron);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 4px solid var(--deep-saffron);
+    box-shadow: 0 4px 0 var(--gold);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-emblem {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 0 0 3px var(--deep-saffron);
+  }
+  .nav-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: white;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 0 var(--deep-saffron);
+  }
+  .nav-title span {
+    display: block;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: var(--gold);
+  }
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: background 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .nav-links a:hover { background: var(--deep-saffron); }
+  .join-btn {
+    background: var(--green) !important;
+    color: white !important;
+    border-radius: 6px !important;
+    border: 2px solid var(--deep-green) !important;
+  }
+  .join-btn:hover { background: var(--deep-green) !important; }
+
+  /* === HERO === */
+  .hero {
+    background: linear-gradient(135deg, var(--saffron) 0%, #FF8C00 40%, var(--green) 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 0;
+  }
+  .hero-stripes {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(255,255,255,0.04) 20px,
+      rgba(255,255,255,0.04) 40px
+    );
+  }
+  .hero-flag-bar {
+    display: flex;
+    height: 8px;
+  }
+  .hero-flag-bar div { flex: 1; }
+  .flag-saffron { background: var(--saffron); }
+  .flag-white { background: white; }
+  .flag-green { background: var(--green); }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    padding: 80px 40px 60px;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: white;
+    color: var(--saffron);
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 6px 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border: 2px solid var(--gold);
+  }
+  .hero-mascot {
+    font-size: 100px;
+    line-height: 1;
+    margin: 10px 0;
+    display: block;
+    animation: wobble 3s ease-in-out infinite;
+  }
+  @keyframes wobble {
+    0%, 100% { transform: rotate(-3deg) scale(1); }
+    50% { transform: rotate(3deg) scale(1.05); }
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 8vw, 110px);
+    color: white;
+    letter-spacing: 4px;
+    line-height: 0.9;
+    text-shadow: 4px 4px 0 var(--deep-saffron), 8px 8px 0 rgba(0,0,0,0.2);
+    margin-bottom: 12px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+    -webkit-text-stroke: 2px var(--deep-saffron);
+  }
+  .hero-tagline {
+    font-size: clamp(16px, 2.5vw, 24px);
+    color: white;
+    font-weight: 600;
+    opacity: 0.95;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    font-style: italic;
+    margin-bottom: 40px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cta-primary {
+    background: white;
+    color: var(--saffron);
+    font-weight: 800;
+    font-size: 16px;
+    padding: 14px 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 3px solid var(--gold);
+    letter-spacing: 1px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 4px 4px 0 var(--deep-saffron);
+  }
+  .cta-primary:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--deep-saffron); }
+  .cta-secondary {
+    background: var(--navy);
+    color: var(--gold);
+    font-weight: 800;
+    font-size: 16px;
+    padding: 14px 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 3px solid var(--gold);
+    letter-spacing: 1px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+  }
+  .cta-secondary:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 rgba(0,0,0,0.3); }
+  .hero-votes {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    text-align: center;
+    color: white;
+  }
+  .hero-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--gold);
+    line-height: 1;
+    text-shadow: 2px 2px 0 var(--deep-saffron);
+  }
+  .hero-stat-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* === SECTION COMMON === */
+  section { padding: 80px 40px; }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: var(--saffron);
+    margin: 12px auto 0;
+    border-radius: 3px;
+  }
+  .section-sub {
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 50px;
+    font-style: italic;
+  }
+
+  /* === WHY US === */
+  .why-section { background: white; }
+  .why-section .section-title { color: var(--navy); }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .feature-card {
+    background: var(--cream);
+    border: 3px solid var(--saffron);
+    border-radius: 12px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 4px 4px 0 var(--saffron);
+  }
+  .feature-card:hover { transform: translate(-3px, -3px); box-shadow: 7px 7px 0 var(--saffron); }
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--saffron), var(--green));
+  }
+  .feature-emoji { font-size: 44px; margin-bottom: 16px; display: block; }
+  .feature-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: var(--navy);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .feature-card p { font-size: 14px; line-height: 1.7; color: #444; }
+
+  /* === MANIFESTO === */
+  .manifesto-section {
+    background: var(--navy);
+    color: white;
+  }
+  .manifesto-section .section-title { color: var(--gold); }
+  .manifesto-section .section-title::after { background: var(--gold); }
+  .manifesto-section .section-sub { color: rgba(255,255,255,0.6); }
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .manifesto-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,215,0,0.3);
+    border-radius: 10px;
+    padding: 20px;
+    transition: background 0.2s;
+  }
+  .manifesto-item:hover { background: rgba(255,255,255,0.12); }
+  .manifesto-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--saffron);
+    line-height: 0.9;
+    min-width: 40px;
+  }
+  .manifesto-text h4 {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .manifesto-text p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+
+  /* === LEADERS === */
+  .leaders-section { background: var(--cream); }
+  .leaders-section .section-title { color: var(--dark); }
+  .leaders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .leader-card {
+    text-align: center;
+    background: white;
+    border-radius: 16px;
+    padding: 32px 20px 24px;
+    border: 3px solid #eee;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .leader-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+  .leader-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    font-size: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid var(--gold);
+    box-shadow: 0 0 0 4px var(--saffron);
+  }
+  .leader-badge {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: var(--saffron);
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .leader-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .leader-title { font-size: 13px; color: var(--saffron); font-weight: 700; margin-bottom: 10px; }
+  .leader-quote { font-size: 13px; color: #666; font-style: italic; line-height: 1.6; }
+
+  /* === POLL === */
+  .poll-section {
+    background: linear-gradient(135deg, var(--saffron) 0%, var(--deep-saffron) 100%);
+    text-align: center;
+    color: white;
+  }
+  .poll-section .section-title { color: white; }
+  .poll-section .section-title::after { background: white; }
+  .poll-box {
+    background: white;
+    color: var(--dark);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+  }
+  .poll-question {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--navy);
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+  .poll-options { display: flex; flex-direction: column; gap: 12px; }
+  .poll-option {
+    position: relative;
+    background: var(--cream);
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 16px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
+    transition: all 0.2s;
+    overflow: hidden;
+  }
+  .poll-option:hover { border-color: var(--saffron); background: #fff3e0; }
+  .poll-option.voted { border-color: var(--green); }
+  .poll-fill {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    background: rgba(19,136,8,0.12);
+    transition: width 0.8s ease;
+    border-radius: 6px;
+  }
+  .poll-option-text { position: relative; z-index: 1; display: flex; justify-content: space-between; }
+  .poll-pct { color: var(--green); font-weight: 800; }
+  .poll-note { font-size: 12px; color: #999; margin-top: 16px; font-style: italic; }
+
+  /* === JOIN === */
+  .join-section { background: var(--green); color: white; text-align: center; }
+  .join-section .section-title { color: white; }
+  .join-section .section-title::after { background: white; }
+  .join-section .section-sub { color: rgba(255,255,255,0.8); }
+  .join-form {
+    max-width: 560px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .join-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .join-form input, .join-form select {
+    padding: 14px 18px;
+    border-radius: 8px;
+    border: 2px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.2s;
+    width: 100%;
+  }
+  .join-form input::placeholder { color: rgba(255,255,255,0.6); }
+  .join-form input:focus, .join-form select:focus { border-color: var(--gold); }
+  .join-form select { color: rgba(255,255,255,0.8); }
+  .join-form select option { color: var(--dark); background: white; }
+  .join-submit {
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 3px;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 4px 4px 0 var(--deep-green);
+  }
+  .join-submit:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--deep-green); }
+  .member-count {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* === GALLERY === */
+  .gallery-section { background: white; }
+  .gallery-section .section-title { color: var(--navy); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .gallery-card {
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .gallery-card:hover { transform: scale(1.04); }
+  .gallery-card:nth-child(1) { background: linear-gradient(135deg, #FF6B00, #FF8C00); }
+  .gallery-card:nth-child(2) { background: linear-gradient(135deg, #000080, #1a1aff); }
+  .gallery-card:nth-child(3) { background: linear-gradient(135deg, #138808, #1db512); }
+  .gallery-card:nth-child(4) { background: linear-gradient(135deg, #FFD700, #FFA000); }
+  .gallery-card:nth-child(5) { background: linear-gradient(135deg, #FF6B00, #138808); grid-column: span 2; font-size: 80px; }
+  .gallery-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* === TESTIMONIALS === */
+  .testimonials-section { background: var(--cream); }
+  .testimonials-section .section-title { color: var(--dark); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .testimonial {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 24px;
+    border-left: 6px solid var(--saffron);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    position: relative;
+  }
+  .testimonial::before {
+    content: '"';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    color: var(--saffron);
+    opacity: 0.2;
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    line-height: 1;
+  }
+  .testimonial p { font-size: 15px; line-height: 1.7; color: #444; font-style: italic; margin-bottom: 16px; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .t-avatar { font-size: 32px; }
+  .t-name { font-weight: 800; font-size: 15px; color: var(--dark); }
+  .t-loc { font-size: 12px; color: #888; }
+  .stars { color: var(--gold); font-size: 14px; margin-bottom: 4px; }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.7);
+    padding: 60px 40px 30px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+  }
+  .footer-brand .nav-title { color: white; font-size: 20px; margin-bottom: 12px; }
+  .footer-brand p { font-size: 13px; line-height: 1.7; max-width: 260px; }
+  footer h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  footer ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  footer ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  footer ul li a:hover { color: var(--gold); }
+  .footer-disclaimer {
+    max-width: 1100px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    font-size: 12px;
+    text-align: center;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.8;
+  }
+  .footer-flag-bar {
+    display: flex;
+    height: 4px;
+    margin-bottom: 40px;
+    opacity: 0.5;
+  }
+  .footer-flag-bar div { flex: 1; }
+
+  /* === MODAL === */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+    border-top: 8px solid var(--saffron);
+  }
+  .modal-overlay.open .modal { transform: scale(1); }
+  .modal-emoji { font-size: 64px; margin-bottom: 16px; display: block; }
+  .modal h2 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--navy); letter-spacing: 2px; margin-bottom: 8px; }
+  .modal p { font-size: 15px; color: #555; line-height: 1.7; margin-bottom: 20px; }
+  .modal-close {
+    position: absolute; top: 12px; right: 16px;
+    font-size: 24px; cursor: pointer; color: #aaa;
+    background: none; border: none; line-height: 1;
+  }
+  .modal-close:hover { color: var(--saffron); }
+  .modal-btn {
+    display: inline-block;
+    background: var(--saffron);
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    padding: 12px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+  .modal-btn:hover { background: var(--deep-saffron); }
+
+  /* === MARQUEE / SLOGANS === */
+  .slogan-bar {
+    background: var(--saffron);
+    padding: 16px 0;
+    overflow: hidden;
+    border-top: 3px solid var(--deep-saffron);
+    border-bottom: 3px solid var(--deep-saffron);
+  }
+  .slogan-track {
+    display: inline-flex;
+    gap: 60px;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+  }
+  .slogan-track span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: white;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 0 var(--deep-saffron);
+  }
+  .slogan-track span::before { content: '🇮🇳 '; }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* responsive */
+  @media (max-width: 768px) {
+    nav { padding: 10px 20px; }
+    .nav-links { display: none; }
+    section { padding: 50px 20px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-card:nth-child(5) { grid-column: span 1; font-size: 60px; }
+    .join-row { grid-template-columns: 1fr; }
+    .hero-inner { padding: 50px 20px 40px; }
+    footer { padding: 40px 20px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <span class="ticker-label">BREAKING</span>
+  <span class="ticker-track">
+    NPCF promises to exterminate corruption AND cockroaches — same budget &nbsp;•&nbsp; 
+    Sher-E-Civil Aman Ansari spotted roaring at a municipal office &nbsp;•&nbsp; 
+    Baddie Allotment Minister Shahid Khan announces 3-year waiting list is now 4 years &nbsp;•&nbsp; 
+    Aquib plants second tree, is now the greenest politician in NPCF history &nbsp;•&nbsp; 
+    Ashif Ahmed fixes pothole with zip ties and optimism — holds for 3 days, record broken &nbsp;•&nbsp;
+    NPCF promises to exterminate corruption AND cockroaches — same budget &nbsp;•&nbsp; 
+    Sher-E-Civil Aman Ansari spotted roaring at a municipal office &nbsp;•&nbsp; 
+    Baddie Allotment Minister Shahid Khan announces 3-year waiting list is now 4 years &nbsp;•&nbsp; 
+    Aquib plants second tree, is now the greenest politician in NPCF history &nbsp;•&nbsp; 
+    Ashif Ahmed fixes pothole with zip ties and optimism — holds for 3 days, record broken &nbsp;•&nbsp;
+  </span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-emblem">🪲</div>
+    <div class="nav-title">
+      National Pest Control Front
+      <span>NPCF — Pest-Free India, Promised</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#why">Why NPCF?</a></li>
+    <li><a href="#manifesto">Manifesto</a></li>
+    <li><a href="#leaders">Leaders</a></li>
+    <li><a href="#join">Join</a></li>
+    <li><a href="#join" class="join-btn">VOTE NPCF</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-flag-bar">
+    <div class="flag-saffron"></div>
+    <div class="flag-white"></div>
+    <div class="flag-green"></div>
+  </div>
+  <div class="hero-stripes"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">🇮🇳 &nbsp; Est. 2024 &nbsp; • &nbsp; Registered* &nbsp; • &nbsp; Probably Legitimate &nbsp; 🇮🇳</div>
+    <span class="hero-mascot">🪲</span>
+    <h1>National<br><em>Pest</em><br>Control Front</h1>
+    <p class="hero-tagline">India's Most Honest Pest Control Party™</p>
+    <p class="hero-sub">*(Registration pending. Pests have been notified. They are unimpressed.)</p>
+    <div class="hero-ctas">
+      <a href="#join" class="cta-primary">🪲 Join the Extermination</a>
+      <a href="#manifesto" class="cta-secondary">📜 Read Our Manifesto</a>
+    </div>
+    <div class="hero-votes">
+      <div class="hero-stat">
+        <div class="hero-stat-num">1CR+</div>
+        <div class="hero-stat-label">Members (Approx.)</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">0</div>
+        <div class="hero-stat-label">Scams (So Far)</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">∞</div>
+        <div class="hero-stat-label">Promises Made</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">₹0</div>
+        <div class="hero-stat-label">In Our Swiss Account</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-flag-bar">
+    <div class="flag-green"></div>
+    <div class="flag-white"></div>
+    <div class="flag-saffron"></div>
+  </div>
+</section>
+
+<!-- SLOGAN BAR -->
+<div class="slogan-bar">
+  <div class="slogan-track">
+    <span>NPCF Zindabad</span>
+    <span>Vote NPCF Vote Pest Control</span>
+    <span>Ek Chance Toh Do Yaar</span>
+    <span>Hum Honge Kamyaab (Eventually)</span>
+    <span>Sab Ka Pest, Sab Ka Rest</span>
+    <span>NPCF Zindabad</span>
+    <span>Vote NPCF Vote Pest Control</span>
+    <span>Ek Chance Toh Do Yaar</span>
+    <span>Hum Honge Kamyaab (Eventually)</span>
+    <span>Sab Ka Pest, Sab Ka Rest</span>
+  </div>
+</div>
+
+<!-- WHY JJP -->
+<section class="why-section" id="why">
+  <h2 class="section-title">Why Vote NPCF?</h2>
+  <p class="section-sub">Excellent question. Here are some extremely compelling reasons.</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-emoji">🔧</span>
+      <h3>Master of Jugaad</h3>
+      <p>Why spend ₹10,000 crore on a flyover when we can fix the road with a speed bump and a prayer? We specialize in solutions that are creative, affordable, and 60% functional.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-emoji">☕</span>
+      <h3>Chai For All</h3>
+      <p>Our flagship policy: one free cutting chai per citizen per day. Funded by redirecting 0.1% of funds currently spent on "studying the issue." Studies show it works.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-emoji">🚦</span>
+      <h3>Traffic Solved</h3>
+      <p>We will add a fourth option to every signal: "Chalo Bhai." It won't technically help but it will make everyone feel better about their commute of 3 hours.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-emoji">📶</span>
+      <h3>Free WiFi Everywhere</h3>
+      <p>From Himalayas to Kanyakumari, every Indian will get free 4G. Password is 'jugaad123'. Yes, same for everyone. We value equality of access and zero security.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-emoji">🪣</span>
+      <h3>Honest Government</h3>
+      <p>Our leaders have promised to be honest about being dishonest. That's at least 50% more transparency than the national average. We did the math.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-emoji">🐄</span>
+      <h3>Cow Economy</h3>
+      <p>We acknowledge cows are sacred AND also helpful economically. Our policy: Respect + Dung biogas = Clean energy. It's in the manifesto. Appendix C. Page 47.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto-section" id="manifesto">
+  <h2 class="section-title">Our 10-Point Manifesto</h2>
+  <p class="section-sub">Written by 12 people in a dhaba at 2am. Peer-reviewed by the chai wallah.</p>
+  <div class="manifesto-grid">
+    <div class="manifesto-item">
+      <div class="manifesto-num">01</div>
+      <div class="manifesto-text">
+        <h4>Potholes → Swimming Holes</h4>
+        <p>We will not fix potholes. We will rebrand them as "urban water features" and charge a small tourism fee. Revenue goes to fixing actual potholes.</p>
+      </div>
+    </div>
+    <div class="manifesto-item">
+      <div class="manifesto-num">02</div>
+      <div class="manifesto-text">
+        <h4>Parliament Attendance</h4>
+        <p>MPs who skip Parliament must do 50 suryanamaskars live on DD National. No exceptions. We have already identified a yoga instructor.</p>
+      </div>
+    </div>
+    <div class="manifesto-item">
+      <div class="manifesto-num">03</div>
+      <div class="manifesto-text">
+        <h4>UPSC Is Now Optional</h4>
+        <p>Citizens may alternatively qualify for IAS by completing a 10-day road trip from Jammu to Kanyakumari using only Indian Railways. Same experience.</p>
+      </div>
+    </div>
+    <div class="manifesto-item">
+      <div class="manifesto-num">04</div>
+      <div class="manifesto-text">
+        <h4>Cricket = National Service</h4>
+        <p>Every Indian must watch at least one Ranji Trophy match per year. We will also watch it. We admit we do not know who plays in it.</p>
+      </div>
+    </div>
+    <div class="manifesto-item">
+      <div class="manifesto-num">05</div>
+      <div class="manifesto-text">
+        <h4>Auto Meter Reform</h4>
+        <p>Auto rickshaws must use meters. Meters must be legible. Legibility will be confirmed by a panel of senior citizens with reading glasses.</p>
+      </div>
+    </div>
+    <div class="manifesto-item">
+      <div class="manifesto-num">06</div>
+      <div class="manifesto-text">
+        <h4>Honest Packaging</h4>
+        <p>Lays packets must be at least 40% chips by volume. We have run out of patience with nitrogen. The nitrogen lobby will not defeat us.</p>
+      </div>
+    </div>
+    <div class="manifesto-item">
+      <div class="manifesto-num">07</div>
+      <div class="manifesto-text">
+        <h4>Cat-Proof Bins</h4>
+        <p>Municipal bins will be cat-proof, goat-proof, and dog-proof. We love animals but we also love streets without garbage. Both can be true.</p>
+      </div>
+    </div>
+    <div class="manifesto-item">
+      <div class="manifesto-num">08</div>
+      <div class="manifesto-text">
+        <h4>Marriage Committee</h4>
+        <p>Relatives who ask "When are you getting married?" at family functions must pay a cess of ₹500 per question. Revenue funds mental health services.</p>
+      </div>
+    </div>
+    <div class="manifesto-item">
+      <div class="manifesto-num">09</div>
+      <div class="manifesto-text">
+        <h4>Train Timing Act</h4>
+        <p>Trains will run on time. Or at least within a 4-hour window. This is our most ambitious policy and we are terrified.</p>
+      </div>
+    </div>
+    <div class="manifesto-item">
+      <div class="manifesto-num">10</div>
+      <div class="manifesto-text">
+        <h4>Jugaad As Heritage</h4>
+        <p>Jugaad will be declared intangible cultural heritage. The bamboo + rubber band engineering tradition of India deserves UNESCO recognition. We've applied.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERS -->
+<section class="leaders-section" id="leaders">
+  <h2 class="section-title">Our Visionary Leaders</h2>
+  <p class="section-sub">Qualified, mostly. Background-checked, sort of. Dedicated, absolutely.</p>
+  <div class="leaders-grid">
+    <div class="leader-card">
+      <div class="leader-badge">President</div>
+      <div class="leader-avatar">👨‍🌾</div>
+      <h3>Ram Baloch</h3>
+      <div class="leader-title">alias Rahul Yadav — Supreme Pest Commander</div>
+      <p class="leader-quote">"I fixed my village's pest problem with a chappai and a rubber band. I can fix the country."</p>
+    </div>
+    <div class="leader-card">
+      <div class="leader-badge">VP</div>
+      <div class="leader-avatar">🦁</div>
+      <h3>Aman Ansari</h3>
+      <div class="leader-title">alias Sher-E-Civil — VP & Minister for Civil Roars</div>
+      <p class="leader-quote">"Every great idea in India started at a chai stall. Every pest problem started in a drain. I know both."</p>
+    </div>
+    <div class="leader-card">
+      <div class="leader-badge">Treasurer</div>
+      <div class="leader-avatar">🧔</div>
+      <h3>Aarif Hussain</h3>
+      <div class="leader-title">Party Treasurer (All ₹12 of it)</div>
+      <p class="leader-quote">"The accounts are totally in order. There's ₹12 in the fund. I counted twice. Pest-free finances."</p>
+    </div>
+    <div class="leader-card">
+      <div class="leader-badge">Ministry</div>
+      <div class="leader-avatar">😎</div>
+      <h3>Shahid Khan</h3>
+      <div class="leader-title">Minister of Baddie Allotment</div>
+      <p class="leader-quote">"Every constituency needs a certified baddie. I handle the allotments. Waiting list is 3 years long."</p>
+    </div>
+    <div class="leader-card">
+      <div class="leader-badge">Ministry</div>
+      <div class="leader-avatar">🔧</div>
+      <h3>Ashif Ahmed</h3>
+      <div class="leader-title">Minister of Jugaadu Affairs</div>
+      <p class="leader-quote">"I once fixed a broken highway with zip ties and optimism. That is my CV. Vote for me."</p>
+    </div>
+    <div class="leader-card">
+      <div class="leader-badge">Ministry</div>
+      <div class="leader-avatar">🌿</div>
+      <h3>Aquib</h3>
+      <div class="leader-title">Minister of Pollution Control 🌿</div>
+      <p class="leader-quote">"I planted one tree. I am currently the greenest politician in this party. The bar is low. I accept this."</p>
+    </div>
+  </div>
+</section>
+
+<!-- POLL -->
+<section class="poll-section">
+  <h2 class="section-title">The People Have Spoken</h2>
+  <p style="color:rgba(255,255,255,0.8);text-align:center;margin-bottom:32px;font-style:italic;">Vote in our official, extremely scientific poll.</p>
+  <div class="poll-box">
+    <div class="poll-question">What is India's Biggest Problem?</div>
+    <div class="poll-options" id="pollOptions">
+      <button class="poll-option" onclick="vote(this, 0)">
+        <div class="poll-fill" style="width:42%"></div>
+        <div class="poll-option-text"><span>🕳️ Potholes (obviously)</span><span class="poll-pct">42%</span></div>
+      </button>
+      <button class="poll-option" onclick="vote(this, 1)">
+        <div class="poll-fill" style="width:28%"></div>
+        <div class="poll-option-text"><span>🤝 Politicians (no offense)</span><span class="poll-pct">28%</span></div>
+      </button>
+      <button class="poll-option" onclick="vote(this, 2)">
+        <div class="poll-fill" style="width:18%"></div>
+        <div class="poll-option-text"><span>📶 No network in the metro</span><span class="poll-pct">18%</span></div>
+      </button>
+      <button class="poll-option" onclick="vote(this, 3)">
+        <div class="poll-fill" style="width:12%"></div>
+        <div class="poll-option-text"><span>🛺 Auto walas refusing passengers</span><span class="poll-pct">12%</span></div>
+      </button>
+    </div>
+    <p class="poll-note">*Based on 4,72,891 votes. Margin of error: ±everything. This poll has no legal standing whatsoever.</p>
+  </div>
+</section>
+
+<!-- GALLERY / MOMENTS -->
+<section class="gallery-section">
+  <h2 class="section-title" style="color:var(--navy)">Party Moments</h2>
+  <p class="section-sub">Our glorious history, captured in stock emoji.</p>
+  <div class="gallery-grid">
+    <div class="gallery-card">🎪<div class="gallery-caption">First rally, 14 attendees</div></div>
+    <div class="gallery-card">🍵<div class="gallery-caption">Manifesto writing session</div></div>
+    <div class="gallery-card">🚂<div class="gallery-caption">Train policy research trip</div></div>
+    <div class="gallery-card">🗳️<div class="gallery-caption">Election Day (we tried)</div></div>
+    <div class="gallery-card">🇮🇳<div class="gallery-caption">Independence Day, when we all realized we love this country (and also hate the traffic)</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <h2 class="section-title">What Real Indians Are Saying</h2>
+  <p class="section-sub">Real quotes*. Real people**. (*Mostly real. **Definitely real.)</p>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>Finally, a party that understands that the auto driver said ₹50 but it's now ₹120 and nobody knows why. JJP gets us.</p>
+      <div class="testimonial-author">
+        <div class="t-avatar">🧑‍💻</div>
+        <div>
+          <div class="t-name">Rahul K.</div>
+          <div class="t-loc">Bengaluru, Karnataka</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>My mother-in-law asked when we were having children at 4 different relatives' weddings this year. The ₹500 cess policy alone is worth my vote.</p>
+      <div class="testimonial-author">
+        <div class="t-avatar">👩</div>
+        <div>
+          <div class="t-name">Priya M.</div>
+          <div class="t-loc">Mumbai, Maharashtra</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★☆</div>
+      <p>I was skeptical. Then I read the Lays packet manifesto. These people GET IT. 40% chips minimum. This is the most important policy in 70 years.</p>
+      <div class="testimonial-author">
+        <div class="t-avatar">🧓</div>
+        <div>
+          <div class="t-name">Suresh B.</div>
+          <div class="t-loc">Chennai, Tamil Nadu</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="join-section" id="join">
+  <h2 class="section-title">Join The Revolution</h2>
+  <p class="section-sub">It's free. It's fun. We send you a digital certificate. Very official.</p>
+  <form class="join-form" onsubmit="handleJoin(event)">
+    <div class="join-row">
+      <input type="text" placeholder="Your Name (Real or Filmy)" required>
+      <input type="tel" placeholder="Phone (We won't call, promise)">
+    </div>
+    <input type="email" placeholder="Email (No spam. Okay, maybe one. Annual jugaad newsletter.)">
+    <select>
+      <option value="">Select Your State (All are great)</option>
+      <option>Andhra Pradesh</option><option>Arunachal Pradesh</option>
+      <option>Assam</option><option>Bihar</option><option>Chhattisgarh</option>
+      <option>Goa</option><option>Gujarat</option><option>Haryana</option>
+      <option>Himachal Pradesh</option><option>Jharkhand</option>
+      <option>Karnataka</option><option>Kerala</option>
+      <option>Madhya Pradesh</option><option>Maharashtra</option>
+      <option>Manipur</option><option>Meghalaya</option><option>Mizoram</option>
+      <option>Nagaland</option><option>Odisha</option><option>Punjab</option>
+      <option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option>
+      <option>Telangana</option><option>Tripura</option>
+      <option>Uttar Pradesh</option><option>Uttarakhand</option>
+      <option>West Bengal</option><option>Delhi</option>
+    </select>
+    <button type="submit" class="join-submit">🪲 BECOME A NPCF MEMBER NOW</button>
+  </form>
+  <p class="member-count">Join 1,00,00,000+ members (approx.) who believe in a pest-free India.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-flag-bar">
+    <div class="flag-saffron"></div>
+    <div class="flag-white" style="background:rgba(255,255,255,0.3)"></div>
+    <div class="flag-green"></div>
+  </div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-title">🪲 National Pest Control Front</div>
+      <p>Fighting for every Indian who has ever been bitten by a mosquito, chased by a cockroach, or governed by a pest. Bharat Mata Ki Jai. Also please spray the drains.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#why">Why NPCF</a></li>
+        <li><a href="#manifesto">Manifesto</a></li>
+        <li><a href="#leaders">Our Leaders</a></li>
+        <li><a href="#join">Join Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Policies</h4>
+      <ul>
+        <li><a href="#">Chai Policy</a></li>
+        <li><a href="#">Traffic Bill</a></li>
+        <li><a href="#">Pothole Act</a></li>
+        <li><a href="#">Lays Chips Bill</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Reach Us</h4>
+      <ul>
+        <li><a href="#">WhatsApp (Always Active)</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Carrier Pigeon</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-disclaimer">
+    <strong style="color:rgba(255,255,255,0.6)">DISCLAIMER:</strong> The National Pest Control Front (NPCF) is a satirical/parody political party created for entertainment purposes only. This is not a real political party and does not contest real elections. All policies, statistics, leaders' quotes, and ministry names are fictional and intended as humour. No actual pests were consulted in the making of this website. Please vote responsibly in real elections. Also please actually spray the drains, whoever is reading this.<br><br>
+    Made with 🪲 Pest Power and ☕ Chai somewhere in India &nbsp;|&nbsp; © 2024 National Pest Control Front &nbsp;|&nbsp; Jai Hind 🇮🇳
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-emoji">🎉</span>
+    <h2>Jai NPCF!</h2>
+    <p>Welcome to the National Pest Control Front! Your digital membership certificate has been dispatched via WhatsApp forward. Please share with 10 friends or the pests will find you (just kidding — but do share).</p>
+    <p style="font-size:13px;color:#888">Member ID: NPCF-<span id="memberId"></span> &nbsp;|&nbsp; Rank: <em>Pest Sainik</em></p>
+    <button class="modal-btn" onclick="closeModal()">Long Live Pest Control!</button>
+  </div>
+</div>
+
+<script>
+  function handleJoin(e) {
+    e.preventDefault();
+    document.getElementById('memberId').textContent = Math.floor(Math.random()*9000000+1000000);
+    document.getElementById('modal').classList.add('open');
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+  }
+  document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  let voted = false;
+  function vote(btn, idx) {
+    if (voted) return;
+    voted = true;
+    const base = [42, 28, 18, 12];
+    base[idx] += 3;
+    const total = base.reduce((a,b)=>a+b,0);
+    const options = document.querySelectorAll('.poll-option');
+    options.forEach((opt, i) => {
+      const pct = Math.round(base[i]/total*100);
+      opt.querySelector('.poll-fill').style.width = pct + '%';
+      opt.querySelector('.poll-pct').textContent = pct + '%';
+      if (i === idx) opt.classList.add('voted');
+    });
+  }
+</script>
+</body>
+</html>
